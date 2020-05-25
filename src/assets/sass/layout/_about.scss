@@ -1,40 +1,59 @@
-.aboutBlock {
+.about-block {
     padding: 5% 0%;
     @extend %double-border;
     text-align: justify;
     @include font($size: 1.7rem, $family: $fontSansFira, $weight: 400);
-    & h2 {
-        @include font($size: 3.3rem, $family: $fontNothingYou, $weight: 700);
-        word-spacing: -0.2em;
-        line-height: 100%;
-        letter-spacing: 0em;
-        text-align: center;
-
-        @extend %double-border;
-        margin-bottom: 20px;
-    }
     display: flex;
-    flex-direction: row;
+    //flex-direction: row;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    @include for-phone {
+        padding: 5% 10%;
+    }
+    @include for-tablet{
+        padding: 5% 10%;
+    }
 
     & > div {
-        flex: 1;
+        @include for-phone {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        @include for-tablet {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        @include for-desktop {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
     }
-    & > div:first-child{
-        padding-right: 8%;
-    }
-    
     & p {
         text-indent: 1.5em;
         line-height: 170%;
         margin-bottom: 20px;
         color: rgba(51, 51, 51, 1);
         letter-spacing: 0.04em;
-        font-size: 14px;
+        font-size: 1.4rem;
+    }
+
+    & > div:first-child {
+        @include for-desktop {
+            padding-right: 8%;
+        }
     }
 }
 
 .portrait {
-    background-image: url("../src/assets/images/portrait.svg");
+    background-image: url("../src/assets/images/portrait.jpg");
     background-size: cover;
     border-width: 0px;
     border-color: black;
@@ -46,4 +65,20 @@
     background-repeat: no-repeat;
     -webkit-box-pack: end;
     justify-content: flex-end;
+    width: 100%;
+    @include for-phone {
+        background-image: url("../src/assets/images/portrait.jpg");
+        background-size: cover;
+        padding: 50% 0% 15.1%;
+    }
+
+    @include for-tablet {
+        background-image: url("../src/assets/images/portrait.jpg");
+        background-size: cover;
+        background-attachment: scroll;
+        padding: 50% 0%;
+        background-position: center top;
+        -webkit-box-pack: end;
+        justify-content: flex-end;
+    }
 }

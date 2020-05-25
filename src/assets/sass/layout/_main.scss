@@ -1,0 +1,20 @@
+h2 {
+    @include font($size: 3.3rem, $family: $fontNothingYou, $weight: 700);
+    word-spacing: -0.2em;
+    line-height: 100%;
+    letter-spacing: 0em;
+    text-align: center;
+
+    @extend %double-border;
+    margin-bottom: 20px;
+}
+
+.example-appear {
+    opacity: 0.01;
+  }
+ 
+  .example-appear.example-appear-active {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+  }
+ 

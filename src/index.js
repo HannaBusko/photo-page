@@ -1,29 +1,40 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import "semantic-ui-css/semantic.css";
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import './index.css';
-//import './assets/sass/main.css';
-import Layout from './components/Layout';
-import SimpleSlider from './components/Slider';
-//import * as serviceWorker from './serviceWorker';
-import HeaderDividing from './components/Header';
-import AboutBlock from './components/About';
-import GalleryGrid from './components/Gallery';
-//import "slick-carousel/slick/slick.css"; 
-//import "slick-carousel/slick/slick-theme.css";
 
+import Layout from './components/Layout';
+import HomePage from '../src/pages/index';
+import {NatureGallery,PartyGallery } from '../src/pages/gallery';
+import HeaderDividing from './components/Header';
+import Social from './components/Social';
 
 ReactDOM.render(
-  <Layout>
-    <HeaderDividing />
-    <SimpleSlider />
-    <AboutBlock />
-    <GalleryGrid />
-  </Layout>
+  <HashRouter>
+    <Layout>
+      <HeaderDividing />
+      <TransitionGroup>
+        <CSSTransition
+          appear={true}
+          classNames="example"
+          timeout={{
+            enter: 500,
+            exit: 300,
+          }}
+        >
+          <Switch>
+            <Route exact path='/' render={() => <HomePage />} />
+            <Route path='/party' render={() => <PartyGallery />} />
+            <Route path='/nature' render={() => <NatureGallery />} />
+            <Redirect to='/' />
+          </Switch>
+        </CSSTransition>
+      </TransitionGroup>
+      <Social />
+    </Layout>
+  </HashRouter>
   , document.getElementById('root')
 );
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-//serviceWorker.unregister();
+// <Route path='/gallery' component={Gallery} />
+ //       <Route exact path='/' component={HomePage} />

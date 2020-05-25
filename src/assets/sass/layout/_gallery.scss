@@ -1,0 +1,11 @@
+.gallery-block {
+    @extend %double-border;
+    padding-bottom: 20px;
+}
+.gallery-image {
+    cursor: pointer;
+}
+
+.fullscreen img{
+   max-width: 80%;
+}
