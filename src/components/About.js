@@ -1,9 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default class AboutBlock extends Component {
-    render() {
-        return (
-            <section className="about-block">
+const AboutBlock =()=> (
+            <section className="block">
                 <div>
                     <h2>Hi, I am Alfredo...</h2>
                     <p>I am a Mexico Documentary Photographer. I am a Mexico Documentary Photographer. I am a Mexico Documentary Photographer.
@@ -18,8 +16,8 @@ export default class AboutBlock extends Component {
                     I am a Mexico Documentary Photographer. I am a Mexico Documentary Photographer.
                 I am a Mexico Documentary Photographer. I am a Mexico Documentary Photographer. I am a Mexico Documentary Photographer.</p>
                 </div>
-                <div className="portrait"></div>
+                <div className="about-portrait portrait"></div>
             </section>
         );
-    }
-}
+
+export default AboutBlock;

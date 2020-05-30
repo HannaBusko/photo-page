@@ -9,12 +9,35 @@ h2 {
     margin-bottom: 20px;
 }
 
-.example-appear {
+.example-enter {
     opacity: 0.01;
+    transform: translateY(10px);
   }
  
-  .example-appear.example-appear-active {
+  .example-enter.example-enter-active {
+    //opacity: 1;
+    ///transition: opacity 500ms ease-in;
     opacity: 1;
-    transition: opacity 500ms ease-in;
-  }
+    transform: none;
+  
+    transition-property: opacity, transform;
+    transition-timing-function: ease-out;
+    transition-duration: 300ms;
+    transition-delay: 500ms;
+    }
  
+ 
+  
+  .example-exit {
+    opacity: 1;
+    transform: none;
+  }
+  
+  .example-exit.example-exit-active {
+    opacity: 0.01;
+    transform: translateY(10px);
+  
+    transition-property: opacity, transform;
+    transition-timing-function: ease-in;
+    transition-duration: 200ms;
+  }

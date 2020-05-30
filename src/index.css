@@ -67,7 +67,7 @@
   @mixin for-big-desktop-up {
     @media (min-width: 1800px) { @content; }
   }*/
-.gallery-block, .about-block, #header, h2 {
+.gallery-block, .block, #header, h2 {
   border-bottom: 4px double rgba(34, 36, 38, 0.322);
   margin-bottom: 20px;
 }
@@ -168,11 +168,6 @@ html {
   box-sizing: inherit;
 }
 
-img {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
 h2 {
   font-size: 3.3rem;
   font-family: "Nothing You Could Do", fantasy;
@@ -184,13 +179,31 @@ h2 {
   margin-bottom: 20px;
 }
 
-.example-appear {
+.example-enter {
   opacity: 0.01;
+  transform: translateY(10px);
 }
 
-.example-appear.example-appear-active {
+.example-enter.example-enter-active {
   opacity: 1;
-  transition: opacity 500ms ease-in;
+  transform: none;
+  transition-property: opacity, transform;
+  transition-timing-function: ease-out;
+  transition-duration: 300ms;
+  transition-delay: 500ms;
+}
+
+.example-exit {
+  opacity: 1;
+  transform: none;
+}
+
+.example-exit.example-exit-active {
+  opacity: 0.01;
+  transform: translateY(10px);
+  transition-property: opacity, transform;
+  transition-timing-function: ease-in;
+  transition-duration: 200ms;
 }
 
 #header h1 {
@@ -486,7 +499,7 @@ h2 {
   color: black;
 }
 
-.about-block {
+.block {
   padding: 5% 0%;
   text-align: justify;
   font-size: 1.7rem;
@@ -498,17 +511,17 @@ h2 {
   margin-left: -15px;
 }
 @media (max-width: 767px) {
-  .about-block {
+  .block {
     padding: 5% 10%;
   }
 }
 @media (max-width: 991px) and (min-width: 768px) {
-  .about-block {
+  .block {
     padding: 5% 10%;
   }
 }
 @media (max-width: 767px) {
-  .about-block > div {
+  .block > div {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
@@ -516,7 +529,7 @@ h2 {
   }
 }
 @media (max-width: 991px) and (min-width: 768px) {
-  .about-block > div {
+  .block > div {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
@@ -524,14 +537,14 @@ h2 {
   }
 }
 @media (min-width: 992px) {
-  .about-block > div {
+  .block > div {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
     max-width: 50%;
   }
 }
-.about-block p {
+.block p {
   text-indent: 1.5em;
   line-height: 170%;
   margin-bottom: 20px;
@@ -540,14 +553,12 @@ h2 {
   font-size: 1.4rem;
 }
 @media (min-width: 992px) {
-  .about-block > div:first-child {
+  .block > div:first-child {
     padding-right: 8%;
   }
 }
 
 .portrait {
-  background-image: url("../src/assets/images/portrait.jpg");
-  background-size: cover;
   border-width: 0px;
   border-color: black;
   background-attachment: scroll;
@@ -562,14 +573,12 @@ h2 {
 }
 @media (max-width: 767px) {
   .portrait {
-    background-image: url("../src/assets/images/portrait.jpg");
     background-size: cover;
     padding: 50% 0% 15.1%;
   }
 }
 @media (max-width: 991px) and (min-width: 768px) {
   .portrait {
-    background-image: url("../src/assets/images/portrait.jpg");
     background-size: cover;
     background-attachment: scroll;
     padding: 50% 0%;
@@ -577,6 +586,56 @@ h2 {
     -webkit-box-pack: end;
     justify-content: flex-end;
   }
+}
+
+.scroll-to-top {
+  opacity: 0.5;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 5px;
+  border: none;
+}
+.scroll-to-top:hover {
+  opacity: 1;
+}
+.scroll-to-top .ui.button {
+  min-height: 3em;
+}
+
+.about-portrait {
+  background-image: url("../src/assets/images/portrait.jpg");
+  background-size: cover;
+}
+@media (max-width: 767px) {
+  .about-portrait {
+    background-image: url("../src/assets/images/portrait.jpg");
+  }
+}
+@media (max-width: 991px) and (min-width: 768px) {
+  .about-portrait {
+    background-image: url("../src/assets/images/portrait.jpg");
+  }
+}
+
+.contact-portrait {
+  background-image: url("../src/assets/images/bird.jpg");
+  background-size: contain;
+}
+@media (max-width: 767px) {
+  .contact-portrait {
+    background-image: url("../src/assets/images/bird.jpg");
+  }
+}
+@media (max-width: 991px) and (min-width: 768px) {
+  .contact-portrait {
+    background-image: url("../src/assets/images/bird.jpg");
+  }
+}
+
+.contact-form {
+  font-family: "PT Sans Narrow", "Verdana", sans-serif;
+  font-weight: 400;
 }
 
 .gallery-block {

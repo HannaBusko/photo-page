@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import { List, Icon } from "semantic-ui-react";
 
-export default class Social extends Component {
-    render() {
-        return (
-            <section className="social-block">
+const Social = () => (
+ 
+    <section className="social-block">
                 <div>
                     <h2>Follow on social</h2>
                 </div>
@@ -42,6 +41,6 @@ export default class Social extends Component {
                     </List.Item>
                 </List>
             </section >
-        );
-    }
-}
+
+);
+export default Social;

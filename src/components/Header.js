@@ -11,7 +11,8 @@ export default class HeaderDividing extends Component {
   render() {
     const { activeItem } = this.state
 
-    return (<header id="header">
+    return (
+    <header id="header">
       <Image centered size='large' src={logo} alt="Alfredo Ramírez " />
       <h1> Party photographer in Mexico</h1>
       <Menu className="main-menu" widths={5} secondary>
@@ -33,8 +34,9 @@ export default class HeaderDividing extends Component {
           onClick={this.handleItemClick}
         />
         <Menu.Item
+          as={Link}  to='/contact'
           name='contact'
-          active={activeItem === 'contact'}
+          active={activeItem === '/contact'|| activeItem === 'contact'}
           onClick={this.handleItemClick}
         />
       </Menu>

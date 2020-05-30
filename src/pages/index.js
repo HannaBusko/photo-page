@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import SimpleSlider from '../components/Slider';
 import AboutBlock from '../components/About';
+import ContactBlock from '../components/Contact';
 
-class HomePage extends React.Component {
-    
-    render() {
-        return (
-            <div>
-                <SimpleSlider />
-                <AboutBlock />
-            </div>
-        );
-    }
-}
+const HomePage = () => (
+    <Fragment>
+        <SimpleSlider />
+        <AboutBlock />
+    </Fragment>
+);
 
-export default HomePage;
+const ContactPage = () => (
+    <Fragment>
+        <ContactBlock />
+    </Fragment>
+);
+
+export { HomePage, ContactPage };

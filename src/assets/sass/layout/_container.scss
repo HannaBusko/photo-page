@@ -1,0 +1,98 @@
+.block {
+    padding: 5% 0%;
+    @extend %double-border;
+    text-align: justify;
+    @include font($size: 1.7rem, $family: $fontSansFira, $weight: 400);
+    display: flex;
+    //flex-direction: row;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    @include for-phone {
+        padding: 5% 10%;
+    }
+    @include for-tablet{
+        padding: 5% 10%;
+    }
+
+    & > div {
+        @include for-phone {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        @include for-tablet {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+
+        @include for-desktop {
+            -webkit-box-flex: 0;
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+    & p {
+        text-indent: 1.5em;
+        line-height: 170%;
+        margin-bottom: 20px;
+        color: rgba(51, 51, 51, 1);
+        letter-spacing: 0.04em;
+        font-size: 1.4rem;
+    }
+
+    & > div:first-child {
+        @include for-desktop {
+            padding-right: 8%;
+        }
+    }
+}
+
+.portrait {
+    
+    border-width: 0px;
+    border-color: black;
+    background-attachment: scroll;
+    background-color: transparent;
+    padding: 0% 0% 11%;
+    background-position: center top;
+    border-style: solid;
+    background-repeat: no-repeat;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    width: 100%;
+    @include for-phone {
+        background-size: cover;
+        padding: 50% 0% 15.1%;
+    }
+
+    @include for-tablet {
+        background-size: cover;
+        background-attachment: scroll;
+        padding: 50% 0%;
+        background-position: center top;
+        -webkit-box-pack: end;
+        justify-content: flex-end;
+    }
+}
+
+.scroll-to-top{
+    opacity: 0.5;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 5px;
+    border: none;
+    
+    &:hover {
+      opacity: 1;
+    }
+
+    & .ui.button{
+        min-height: 3em;
+    }
+  }

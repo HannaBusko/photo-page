@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Grid, Dimmer, Image, Loader } from 'semantic-ui-react';
 import Carousel, { Modal, ModalGateway } from 'react-images';
 
+
 class GalleryGrid extends Component {
 
     state = {
@@ -23,7 +24,7 @@ class GalleryGrid extends Component {
 
     render() {
         const { images } = this.props;
-        const { selectedIndex, lightboxIsOpen,active } = this.state;
+        const { selectedIndex, lightboxIsOpen, active } = this.state;
 
         return (
             <Fragment>
@@ -38,8 +39,9 @@ class GalleryGrid extends Component {
                                         <Loader>Loading</Loader>
                                     </Dimmer>
                                     <Image as='img' src={val.src} key={i} className="gallery-image" onLoad={this.handleImageLoaded.bind(this)}
-                                          onClick={() => this.toggleLightbox(i)} />
-                                </Dimmer.Dimmable></Grid.Column>
+                                        onClick={() => this.toggleLightbox(i)} />
+                                </Dimmer.Dimmable>
+                            </Grid.Column>
                         ))}
                     </Grid>
                 </div>
@@ -50,6 +52,7 @@ class GalleryGrid extends Component {
                             <Carousel
                                 currentIndex={selectedIndex}
                                 views={images}
+
 
                             />
                         </Modal>

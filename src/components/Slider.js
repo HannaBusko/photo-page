@@ -1,24 +1,23 @@
-import React, { Component } from "react";
+import React from "react";
 import Slider from "react-slick";
 
 import jazz1 from '../assets/images/jazz1.jpg';
 import jazz2 from '../assets/images/jazz2.jpg';
 import jazz3 from '../assets/images/jazz3.jpg';
 
-export default class SimpleSlider extends Component {
-    render() {
-      const settings = {
-        dots: true,
-        fade: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        pauseOnHover: true,
-        autoplaySpeed: 6000
-      };
-      return (
+const settings = {
+  dots: true,
+  fade: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  pauseOnHover: true,
+  autoplaySpeed: 6000
+};
+
+const SimpleSlider = ()=>(
         <div className="slider-block">
           <Slider {...settings}>
             <div>
@@ -33,5 +32,5 @@ export default class SimpleSlider extends Component {
           </Slider>
         </div>
       );
-    }
-  }
+
+  export default SimpleSlider;
