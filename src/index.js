@@ -11,6 +11,8 @@ import HeaderDividing from './components/Header';
 import Social from './components/Social';
 import ScrollToTopBtn from "./components/ScrollToTop";
 
+import * as serviceWorker from './serviceWorker';
+
 
 const pageTransitionsDuration = {
   enter: 500,
@@ -70,3 +72,4 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
+serviceWorker.register();
