@@ -52,8 +52,6 @@ class GalleryGrid extends Component {
                             <Carousel
                                 currentIndex={selectedIndex}
                                 views={images}
-
-
                             />
                         </Modal>
                     ) : null}

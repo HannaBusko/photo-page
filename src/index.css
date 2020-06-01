@@ -647,7 +647,7 @@ h2 {
 }
 
 .fullscreen img {
-  max-width: 80%;
+  max-height: calc(100vh - 94px);
 }
 
 .social-block {
